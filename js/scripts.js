@@ -1,4 +1,4 @@
-alert (Please refresh the webpage,Thanks)
+alert ("Please refresh the webpage,Thanks")
 // added new pokomen variables
 let pokemonList =[ {name:'Bulbasaur', type:'grass', height:3 },
                    {name:'Ivysaur', type:'poison', height:7 },
