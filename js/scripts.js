@@ -1,11 +1,13 @@
-alert ("Please refresh the webpage,Thanks")
+
+alert('Hello world');
 // added new pokomen variables
-let pokemonList =[ {name:'Bulbasaur', type:'grass', height:3 },
+/* let pokemonList =[ {name:'Bulbasaur', type:'grass', height:3 },
                    {name:'Ivysaur', type:'poison', height:7 },
                    {name:'Blastoise', type:'water', height:5 }    
-                   ]
+                   ] */
  // Used document.write() inside the loop’s code
- // Added heigth and updated the conditions.
+
+
 /* for (let i=0; i< pokemonList.length;i++) {
   if (pokemonList[i].height >= 7) {
       document.write (pokemonList[i].name + " (height:" + pokemonList[i].height + "m) - Wow, that is big!" + "<br>")
@@ -16,11 +18,11 @@ let pokemonList =[ {name:'Bulbasaur', type:'grass', height:3 },
   }
 } */
 
-// wrapped  pokemonList array in an IIFE 
 let pokemonRepository =(function(){
     let pokemonList =[ {name:'Bulbasaur', type:'grass', height:3 },
                      {name:'Ivysaur', type:'poison', height:7 },
-                     {name:'Blastoise', type:'water', height:5 },    
+                     {name:'Blastoise', type:'water', height:5 }, 
+                     {name:'pikachu', type:'electric', height:1 },   
                      ];
     
     function add(pokemon) {
@@ -30,16 +32,29 @@ let pokemonRepository =(function(){
     function getAll() {
       return pokemonList;
     }
+    // created addListItem and click listner
+    function addListItem (pokemon) {
+      let pokemonList = document.querySelector(".pokemon-list");
+      let listpokemon = document.createElement("li");
+      let button = document.createElement("button");
+      button.innerText = pokemon.name;
+      button.classList.add("button-class");
+      button.addEventListener('click', Event => showDetails(pokemon));
+      listpokemon.appendChild(button);
+      pokemonList.appendChild(listpokemon);
+    }
+    
   
      return {
       add: add,
-      getAll: getAll
+      getAll: getAll,
+      addListItem: addListItem
+    
      };
    })();
   
    // used forEach loop to retrieve the pokemonList array.
-      pokemonRepository.getAll().forEach(function (pokemon) {
-    console.log(pokemon.name + ' is ' + pokemon.type + ' type wiht height ' + pokemon.height + ' m'    );
+      pokemonRepository.getAll().forEach(function (pokemon) { 
+      pokemonRepository.addListItem (pokemon);
+        
   });
-
-
