@@ -39,7 +39,7 @@ let pokemonRepository =(function(){
       let button = document.createElement("button");
       button.innerText = pokemon.name;
       button.classList.add("button-class");
-      button.addEventListener('click', Event => showDetails(pokemon));
+      button.addEventListener("click", (Event) => showDetails(pokemon));
       listpokemon.appendChild(button);
       pokemonList.appendChild(listpokemon);
     }
@@ -48,7 +48,8 @@ let pokemonRepository =(function(){
      return {
       add: add,
       getAll: getAll,
-      addListItem: addListItem
+      addListItem: addListItem,
+     
     
      };
    })();
