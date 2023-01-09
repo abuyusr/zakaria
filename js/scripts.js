@@ -32,18 +32,23 @@ let pokemonRepository =(function(){
     function getAll() {
       return pokemonList;
     }
-    // created addListItem and click listner
+    // created and updated addListItem and click listener
     function addListItem (pokemon) {
       let pokemonList = document.querySelector(".pokemon-list");
       let listpokemon = document.createElement("li");
       let button = document.createElement("button");
       button.innerText = pokemon.name;
       button.classList.add("button-class");
-      button.addEventListener("click", (Event) => showDetails(pokemon));
+      button.addEventListener('click', function (pokemon) {
+      console.log(pokemon);
+      });
       listpokemon.appendChild(button);
       pokemonList.appendChild(listpokemon);
     }
-    
+    // created a showDetails function.
+    function showDetails(pokemon) {
+      console.log (pokemon);
+    }
   
      return {
       add: add,
