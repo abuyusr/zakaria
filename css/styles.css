@@ -1,0 +1,12 @@
+main {
+  text-align: left;
+  margin: auto;
+  padding: auto;
+}
+
+.welcome {
+  padding-top: 80px;
+  padding-bottom: 30px;
+  text-align: center;
+  background-color: rgb(231, 185, 185);
+}
